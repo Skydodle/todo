@@ -14,10 +14,17 @@ function App() {
     setToDoList(mapped);
   };
 
+  const handleDelete = () => {
+    const filtered = toDoList.filter((item) => {
+      return !item.complete;
+    });
+    setToDoList(filtered);
+  };
+
   return (
     <div className="App">
       <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleDelete={handleDelete} />
     </div>
   );
 }
