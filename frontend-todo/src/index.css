@@ -20,7 +20,9 @@ code {
 .todo {
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  align-items: flex-start;
+  margin-left: 40%;
+
 }
 
 .strike {
@@ -29,4 +31,8 @@ code {
 
 .checkForm {
   cursor: pointer;
+}
+
+.container {
+  justify-content: center;
 }

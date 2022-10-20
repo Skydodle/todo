@@ -19,6 +19,19 @@ const App = () => {
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
   }, [toDoList]);
 
+  const handleAdd = (input) => {
+    let newList = [...toDoList];
+    newList = [...newList, { id: toDoList.length + 1, task: input, complete: false }];
+    setToDoList(newList);
+  };
+
+  const handleUpdate = (input, id) => {
+    const updateItem = toDoList.map((item) => {
+      return item.id === id ? input : item;
+    });
+    setToDoList(updateItem);
+  };
+
   const handleToggle = (id) => {
     const mapped = toDoList.map((item) => {
       return item.id === Number(id) ? { ...item, complete: !item.complete } : { ...item };
@@ -33,17 +46,16 @@ const App = () => {
     setToDoList(filtered);
   };
 
-  const handleAdd = (input) => {
-    let newList = [...toDoList];
-    newList = [...newList, { id: toDoList.length + 1, task: input, complete: false }];
-    setToDoList(newList);
-  };
-
   return (
     <div className="App">
       <Header />
       <AddToDo handleAdd={handleAdd} />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleDelete={handleDelete} />
+      <ToDoList
+        toDoList={toDoList}
+        handleToggle={handleToggle}
+        handleDelete={handleDelete}
+        handleUpdate={handleUpdate}
+      />
     </div>
   );
 };
