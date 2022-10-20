@@ -12,10 +12,21 @@ code {
     monospace;
 }
 
+.addForm {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .todo {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .strike {
   text-decoration: line-through;
+}
+
+.checkForm {
+  cursor: pointer;
 }

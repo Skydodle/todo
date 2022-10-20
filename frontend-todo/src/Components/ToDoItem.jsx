@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ToDoItem = ({ todo, handleToggle }) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChecked = () => {
+    setChecked(!checked);
+  };
+
   const handleClick = (e) => {
-    e.preventDefault();
+    handleChecked();
     handleToggle(e.currentTarget.id);
   };
 
   return (
-    <div
-      id={todo.id}
-      name="todo"
-      value={todo.id}
-      onClick={handleClick}
-      className={todo.complete ? 'todo strike' : 'todo'}>
-      {todo.task}
-    </div>
+    <form className="todo">
+      <label name="todo" value={todo.id} className={checked ? 'strike' : ''}>
+        {todo.task}
+        <input id={todo.id} type="checkbox" onChange={handleClick} className="checkForm" />
+      </label>
+    </form>
   );
 };
 

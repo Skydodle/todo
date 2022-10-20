@@ -14,9 +14,9 @@ const AddTodo = ({ handleAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="addForm" onSubmit={handleSubmit}>
       <input value={input} onChange={handleInput} type="text" placeholder="Enter new task..." />
-      <button>Submit</button>
+      <button>Add</button>
     </form>
   );
 };
