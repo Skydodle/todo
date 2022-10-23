@@ -71,6 +71,9 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate }) => {
             />
           </div>
           <div className="btn-group">
+            <button type="button" className="btn todo-cancel" onClick={() => setIsEditing(false)}>
+              Cancel
+            </button>
             <button type="submit" className="btn btn__primary todo-edit">
               Update
             </button>

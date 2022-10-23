@@ -3,7 +3,7 @@ import ToDoItem from './ToDoItem';
 
 const ToDoList = ({ toDoList, handleToggle, handleDelete, handleUpdate }) => {
   return (
-    <ul className="todo-list stack-large stack exception">
+    <ul className="todo-list stack-large stack exception" role="list">
       {toDoList.map((item) => {
         return (
           <ToDoItem
