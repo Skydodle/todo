@@ -33,28 +33,48 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate }) => {
   return (
     <>
       {!isEditing ? (
-        <form className="todo">
-          <label name="todo" value={todo.id} className={checked ? 'strike' : ''}>
-            <button
-              onClick={() => handleEditClick(todo)}
-              style={{ marginLeft: '2px', marginRight: '4px' }}>
+        <div className="stack-small">
+          <div className="c-cb">
+            <input
+              id={todo.id}
+              type="checkbox"
+              defaultChecked={todo.complete}
+              onChange={handleClick}
+            />
+            <label
+              name="todo"
+              value={todo.id}
+              className={checked ? 'strike todo-label' : 'todo-label'}
+              htmlFor={todo.id}>
+              {todo.task}
+            </label>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn" onClick={() => handleEditClick(todo)}>
               Edit
             </button>
-            <input id={todo.id} type="checkbox" onChange={handleClick} className="checkForm" />
-            {todo.task}
-          </label>
-        </form>
+          </div>
+        </div>
       ) : (
-        <form onSubmit={handleEditSubmit}>
-          <label name="updateTodo">Update todo:</label>
-          <input
-            name="updateTodo"
-            type="text"
-            value={currentTask.task}
-            onChange={handleEditInput}
-            placeholder={currentTask.task}
-          />
-          <button>Submit</button>
+        <form className="stack-small" onSubmit={handleEditSubmit}>
+          <div className="form-group">
+            <label className="todo-label" htmlFor={todo.id}>
+              Edit this task
+            </label>
+            <input
+              id={todo.id}
+              className="todo-text"
+              type="text"
+              value={currentTask.task}
+              onChange={handleEditInput}
+              placeholder={currentTask.task}
+            />
+          </div>
+          <div className="btn-group">
+            <button type="submit" className="btn btn__primary todo-edit">
+              Update
+            </button>
+          </div>
         </form>
       )}
     </>

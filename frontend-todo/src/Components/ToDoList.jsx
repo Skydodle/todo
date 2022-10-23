@@ -3,7 +3,7 @@ import ToDoItem from './ToDoItem';
 
 const ToDoList = ({ toDoList, handleToggle, handleDelete, handleUpdate }) => {
   return (
-    <div className="container">
+    <ul className="todo-list stack-large stack exception">
       {toDoList.map((item) => {
         return (
           <ToDoItem
@@ -15,10 +15,10 @@ const ToDoList = ({ toDoList, handleToggle, handleDelete, handleUpdate }) => {
         );
       })}
 
-      <button style={{ margin: '20px' }} onClick={handleDelete}>
+      <button type="button" className="btn btn__danger" onClick={handleDelete}>
         Delete Completed
       </button>
-    </div>
+    </ul>
   );
 };
 

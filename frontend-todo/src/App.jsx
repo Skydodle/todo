@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-// import data from './data.json';
-
 import { AddToDo, Header, ToDoList } from './Components';
+// import data from './data.json';
 
 const App = () => {
   // const [toDoList, setToDoList] = useState(data);
@@ -47,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app stack-large">
       <Header />
       <AddToDo handleAdd={handleAdd} />
       <ToDoList

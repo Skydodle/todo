@@ -14,9 +14,19 @@ const AddTodo = ({ handleAdd }) => {
   };
 
   return (
-    <form className="addForm" onSubmit={handleSubmit}>
-      <input value={input} onChange={handleInput} type="text" placeholder="Enter new task..." />
-      <button>Add</button>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        id="new-todo-input"
+        name="text"
+        className="input input__lg"
+        placeholder="Enter new task..."
+        value={input}
+        onChange={handleInput}
+      />
+      <button type="submit" className="btn btn__primary btn__lg">
+        Add
+      </button>
     </form>
   );
 };
