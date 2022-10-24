@@ -45,13 +45,14 @@ const App = () => {
     setToDoList(filtered);
   };
 
-  const remainingTask = `${toDoList.length} task remaining`;
+  const taskNoun = toDoList.length !== 1 ? 'tasks' : 'task';
+  const remainingTasks = `${toDoList.length} ${taskNoun} remaining`;
 
   return (
     <div className="app stack-large">
       <Header />
       <AddToDo handleAdd={handleAdd} />
-      <h2 id="list-heading">{remainingTask}</h2>
+      <h2 id="list-heading">{remainingTasks}</h2>
       <ToDoList
         toDoList={toDoList}
         handleToggle={handleToggle}
