@@ -23,3 +23,4 @@ My plan is to make the following separate versions in the future:
 - Typescript frontend: convert frontend-todo into typescript
 - Backend only: using Node, Express, PostgreSQL
 - Fullstack: a fullstack version combining front and back 
+- Deployment: maybe convert to NextJS with vercel deployment for front-end only; Amazon EC2 for fullstack
