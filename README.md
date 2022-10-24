@@ -16,3 +16,10 @@ npm install
 npm start
 ```
 Browser should open http://localhost:3000
+
+## Future Development
+I started in the `frontend-todo` folder because this the frontend only version.
+My plan is to make the following versions in the future:
+- Typescript frontend: convert frontend only into typescript
+- Backend only: using Node, Express, PostgreSQL
+- Fullstack: a fullstack version combining front and back 
