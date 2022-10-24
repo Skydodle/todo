@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { AddToDo, Header, ToDoList } from './Components';
+import { AddToDo, Header, ToDoList, FilterButtons } from './components';
+import { FILTER_MAP, FILTER_NAMES } from './utils/filterMap';
 import { nanoid } from 'nanoid';
-// import data from './data.json';
+// import data from './utils/data.json';
 
 const App = () => {
   // const [toDoList, setToDoList] = useState(data);
@@ -14,6 +15,8 @@ const App = () => {
     }
   });
 
+  const [filter, setFilter] = useState('All');
+
   useEffect(() => {
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
   }, [toDoList]);
@@ -24,18 +27,18 @@ const App = () => {
     setToDoList(newList);
   };
 
-  const handleUpdate = (input, id) => {
-    const updateItem = toDoList.map((item) => {
-      return item.id === id ? input : item;
-    });
-    setToDoList(updateItem);
-  };
-
   const handleToggle = (id) => {
     const mapped = toDoList.map((item) => {
       return item.id === id ? { ...item, complete: !item.complete } : { ...item };
     });
     setToDoList(mapped);
+  };
+
+  const handleUpdate = (input, id) => {
+    const updateItem = toDoList.map((item) => {
+      return item.id === id ? input : item;
+    });
+    setToDoList(updateItem);
   };
 
   const handleDelete = () => {
@@ -52,6 +55,7 @@ const App = () => {
     <div className="app stack-large">
       <Header />
       <AddToDo handleAdd={handleAdd} />
+      <FilterButtons />
       <h2 id="list-heading">{remainingTasks}</h2>
       <ToDoList
         toDoList={toDoList}

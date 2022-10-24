@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App';
-import { AddToDo } from './Components';
 
 const setLocalStorage = (id, data) => {
   window.localStorage.setItem(id, JSON.stringify(data));
