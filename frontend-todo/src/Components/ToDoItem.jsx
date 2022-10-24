@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 
 const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
-  const [checked, setChecked] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
 
-  const handleChecked = () => {
-    setChecked(!checked);
-  };
-
   const handleClick = (e) => {
-    handleChecked();
     handleToggle(e.currentTarget.id);
   };
 
@@ -39,7 +33,7 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
             <label
               name="todo"
               value={todo.id}
-              className={checked ? 'strike todo-label' : 'todo-label'}
+              className={todo.complete ? 'strike todo-label' : 'todo-label'}
               htmlFor={todo.id}>
               {todo.task}
             </label>
