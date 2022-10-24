@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { AddToDo, Header, ToDoList, FilterButtons } from './components';
-import { FILTER_MAP, FILTER_NAMES } from './utils/filterMap';
 import { nanoid } from 'nanoid';
 // import data from './utils/data.json';
 
@@ -48,20 +47,17 @@ const App = () => {
     setToDoList(filtered);
   };
 
-  const taskNoun = toDoList.length !== 1 ? 'tasks' : 'task';
-  const remainingTasks = `${toDoList.length} ${taskNoun} remaining`;
-
   return (
     <div className="app stack-large">
       <Header />
       <AddToDo handleAdd={handleAdd} />
-      <FilterButtons />
-      <h2 id="list-heading">{remainingTasks}</h2>
+      <FilterButtons setFilter={setFilter} />
       <ToDoList
         toDoList={toDoList}
         handleToggle={handleToggle}
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
+        filter={filter}
       />
     </div>
   );

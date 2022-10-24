@@ -5,7 +5,12 @@ const FilterButtons = ({ setFilter }) => {
   return (
     <div className="filters btn-group stack-exception">
       {FILTER_NAMES.map((name) => (
-        <button type="button" className="btn toggle-btn" key={name} name={name}>
+        <button
+          type="button"
+          className="btn toggle-btn"
+          key={name}
+          name={name}
+          onClick={() => setFilter(name)}>
           {name}
         </button>
       ))}

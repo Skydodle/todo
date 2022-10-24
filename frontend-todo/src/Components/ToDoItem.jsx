@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ToDoItem = ({ todo, handleToggle, handleUpdate }) => {
+const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
   const [checked, setChecked] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
@@ -35,12 +35,7 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate }) => {
       {!isEditing ? (
         <div className="stack-small">
           <div className="c-cb">
-            <input
-              id={todo.id}
-              type="checkbox"
-              defaultChecked={todo.complete}
-              onChange={handleClick}
-            />
+            <input id={todo.id} type="checkbox" defaultChecked={complete} onChange={handleClick} />
             <label
               name="todo"
               value={todo.id}
