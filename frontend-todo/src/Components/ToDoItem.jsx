@@ -39,7 +39,7 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
             </label>
           </div>
           <div className="btn-group">
-            <button type="button" className="btn" onClick={() => handleEditClick(todo)}>
+            <button type="button" className="btn btn__edit" onClick={() => handleEditClick(todo)}>
               Edit
             </button>
           </div>
