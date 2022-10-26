@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AddToDo, Header, ToDoList, FilterButtons } from './components';
 import useLocalStorage from './utils/useLocalStorage';
 import { nanoid } from 'nanoid';
 // import data from './utils/data.json';
 
 const App = () => {
-  const [toDoList, setToDoList] = useLocalStorage('toDoList', []);
+  // const [toDoList, setToDoList] = useState(data);
+  // const [toDoList, setToDoList] = useState(() => {
+  //   const savedList = localStorage.getItem('toDoList');
+  //   if (savedList) {
+  //     return JSON.parse(savedList);
+  //   } else {
+  //     return [];
+  //   }
+  // });
+  const [toDoList, setToDoList] = useLocalStorage('toDoList', [{}]);
+
   const [filter, setFilter] = useState('All');
+
+  // useEffect(() => {
+  //   // localStorage.setItem('toDoList', JSON.stringify(toDoList));
+
+  // }, [toDoList]);
 
   const handleAdd = (input) => {
     let newList = [...toDoList];
@@ -21,9 +36,9 @@ const App = () => {
     setToDoList(mapped);
   };
 
-  const handleUpdate = (input, id) => {
+  const handleUpdate = (taskObj) => {
     const updateItem = toDoList.map((item) => {
-      return item.id === id ? input : item;
+      return item.id === taskObj.id ? taskObj : item;
     });
     setToDoList(updateItem);
   };

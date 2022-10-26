@@ -20,7 +20,7 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    handleUpdate(currentTask, currentTask.id);
+    handleUpdate(currentTask);
     setIsEditing(false);
   };
 
