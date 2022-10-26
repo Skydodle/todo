@@ -21,11 +21,11 @@ const App = () => {
     setToDoList(mapped);
   };
 
-  const handleUpdate = (taskObj) => {
-    const updateItem = toDoList.map((item) => {
-      return item.id === taskObj.id ? taskObj : item;
+  const handleUpdate = (updatedTaskObj) => {
+    const updatedList = toDoList.map((task) => {
+      return task.id === updatedTaskObj.id ? updatedTaskObj : task;
     });
-    setToDoList(updateItem);
+    setToDoList(updatedList);
   };
 
   const handleDelete = () => {
