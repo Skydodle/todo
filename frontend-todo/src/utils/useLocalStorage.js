@@ -8,7 +8,7 @@ function useLocalStorage(key, initialValue) {
     return savedList ? JSON.parse(savedList) : initialValue;
   });
 
-  // Define a setValue function to redine the useState hook to set localStorage
+  // Define a setValue function to redefine the useState hook to set localStorage
   // Allow value to be a function so we have same API as useState
   // Every time save state also save to localStorage
   const setValue = (value) => {

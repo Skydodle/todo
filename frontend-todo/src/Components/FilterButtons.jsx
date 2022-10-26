@@ -1,10 +1,11 @@
 import React from 'react';
-import { FILTER_NAMES } from '../utils/filterMap';
 
 const FilterButtons = ({ setFilter }) => {
+  const filterNames = ['All', 'Active', 'Completed'];
+
   return (
     <div className="filters btn-group stack-exception">
-      {FILTER_NAMES.map((name) => (
+      {filterNames.map((name) => (
         <button
           type="button"
           className="btn toggle-btn"
