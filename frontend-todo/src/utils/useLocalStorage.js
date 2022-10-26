@@ -5,6 +5,7 @@ function useLocalStorage(key, initialValue) {
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
     const savedList = localStorage.getItem(key);
+
     return savedList ? JSON.parse(savedList) : initialValue;
   });
 
@@ -13,7 +14,9 @@ function useLocalStorage(key, initialValue) {
   // Every time save state also save to localStorage
   const setValue = (value) => {
     const valueToStore = value instanceof Function ? value(storedValue) : value;
+
     setStoredValue(valueToStore);
+
     localStorage.setItem(key, JSON.stringify(valueToStore));
   };
   return [storedValue, setValue];
