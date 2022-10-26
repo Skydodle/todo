@@ -4,7 +4,7 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentTask, setCurrentTask] = useState({});
 
-  const handleClick = (e) => {
+  const handleCheckboxClick = (e) => {
     handleToggle(e.currentTarget.id);
   };
 
@@ -29,7 +29,12 @@ const ToDoItem = ({ todo, handleToggle, handleUpdate, complete }) => {
       {!isEditing ? (
         <div className="stack-small">
           <div className="c-cb">
-            <input id={todo.id} type="checkbox" defaultChecked={complete} onChange={handleClick} />
+            <input
+              id={todo.id}
+              type="checkbox"
+              defaultChecked={complete}
+              onChange={handleCheckboxClick}
+            />
             <label
               name="todo"
               value={todo.id}
